@@ -8,6 +8,8 @@ Dự án này là một demo về bảo mật ứng dụng web sử dụng Sprin
 - Trang đăng nhập tùy chỉnh
 - Kho người dùng trong bộ nhớ
 - Giao diện sử dụng Thymeleaf
+- Đăng ký, đăng nhập tài khoản thường, admin
+- Có thể thêm, sửa, xóa người dùng thông qua trang admin
 
 ## Yêu cầu
 - Java 17
@@ -30,11 +32,6 @@ Dự án này là một demo về bảo mật ứng dụng web sử dụng Sprin
     mvn spring-boot:run
     ```
 
-## Sử dụng
-- Truy cập ứng dụng tại `http://localhost:8080`
-- Đăng nhập với thông tin sau:
-    - Tên đăng nhập: `user`
-    - Mật khẩu: `password`
 
 ## Demo
 - Trang chủ:
@@ -43,8 +40,15 @@ Dự án này là một demo về bảo mật ứng dụng web sử dụng Sprin
     ![Trang đăng nhập](src/main/resources/img/LoginAfterClick.png)
 - Trang đăng nhập:
     ![Trang đăng nhập](src/main/resources/img/login.png)
+- Trang đăng ký:
+   ![Trang đăng ký](src/main/resources/img/register.png)
 - Trang chào:
     ![Trang chào](src/main/resources/img/HelloPage.png)
+- Trang admin:
+
+    ![Trang admin](src/main/resources/img/AdminPage.png)
+- Trang admin với tài khoản thường:
+![Trang admin với tài khoản thường](src/main/resources/img/AdminPageWithUserAccount.png)
 
 ## Cấu trúc dự án
 - `src/main/java/com/example/securingweb/`: Các file nguồn Java
