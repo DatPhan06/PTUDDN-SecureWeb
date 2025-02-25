@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <title>Spring Security Example</title>
-    </head>
-    <body>
-        <h1>Welcome!</h1>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Spring Security Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>Welcome to the Secure Web App!</h1>
 
-        <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
-    </body>
+<!-- Hiển thị thông báo nếu người dùng đã đăng nhập -->
+<div sec:authorize="isAuthenticated()">
+    <p>Xin chào, <span sec:authentication="name"></span>!</p>
+    <form th:action="@{/logout}" method="post">
+        <button class="button" type="submit">Đăng xuất</button>
+    </form>
+</div>
+
+<!-- Hiển thị nút đăng nhập/đăng ký nếu chưa đăng nhập -->
+<div sec:authorize="!isAuthenticated()">
+    <a class="button" th:href="@{/login}">Đăng nhập</a>
+    <a class="button" th:href="@{/register}">Đăng ký</a>
+</div>
+
+<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+</body>
 </html>
